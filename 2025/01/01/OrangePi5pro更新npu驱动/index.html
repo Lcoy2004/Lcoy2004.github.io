@@ -169,119 +169,7 @@
     
     
     
-<meta name="generator" content="Hexo 8.1.2"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-.MathJax path {
-  stroke-width: 3;
-}
-
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
-
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style><link rel="alternate" href="/atom.xml" title="雨山的Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="雨山的Blog" type="application/atom+xml">
 </head>
 
 
@@ -496,11 +384,11 @@ mjx-container[display="true"] + br {
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">72</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">75</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
@@ -622,7 +510,8 @@ mjx-container[display="true"] + br {
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="部署环境"><a href="#部署环境" class="headerlink" title="部署环境"></a>部署环境</h2><blockquote>
+			<h2 id="部署环境">部署环境</h2>
+<blockquote>
 <p>CPU：RK3588s</p>
 <p>内存大小：8G</p>
 <p>使用<code>emmc</code>作为存储，额定大小32G</p>
@@ -632,47 +521,70 @@ mjx-container[display="true"] + br {
 <p>kllm-runtime version: 1.1.4</p>
 <p>此外，另外需要一台电脑运行Ubuntu22.04，当然可以使用VMware！</p>
 </blockquote>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="检查NPU驱动！"><a href="#检查NPU驱动！" class="headerlink" title="检查NPU驱动！"></a>检查NPU驱动！</h3><p>目前<code>RKNPU driver: v0.9.8</code> 经过测试，<code>kllm-runtime version: 1.1.4</code> 可以完美运行。截至目前，官方给出的镜像里<code>RKNPU driver: v0.9.6</code>经过验证，不能兼容，运行出错！</p>
-<pre><code>sudo cat /sys/kernel/debug/rknpu/version
-</code></pre>
+<h2 id="步骤">步骤</h2>
+<h3 id="检查npu驱动">检查NPU驱动！</h3>
+<p>目前<code>RKNPU driver: v0.9.8</code>
+经过测试，<code>kllm-runtime version: 1.1.4</code>
+可以完美运行。截至目前，官方给出的镜像里<code>RKNPU driver: v0.9.6</code>经过验证，不能兼容，运行出错！</p>
+<pre><code>sudo cat /sys/kernel/debug/rknpu/version</code></pre>
 <p>应当出现</p>
 <blockquote>
 <p><code>orangepi@orangepi5pro:~$ sudo cat /sys/kernel/debug/rknpu/version</code></p>
 <p><code>[sudo] password for orangepi:</code></p>
 <p><code>RKNPU driver: v0.9.8</code></p>
 </blockquote>
-<h3 id="编译新内核"><a href="#编译新内核" class="headerlink" title="编译新内核"></a>编译新内核</h3><p>如果你的驱动版本在<code>kllm-runtime version: 1.1.4</code> 支持的v0.9.8，则不需要这一步，直接跳下一步！</p>
+<h3 id="编译新内核">编译新内核</h3>
+<p>如果你的驱动版本在<code>kllm-runtime version: 1.1.4</code>
+支持的v0.9.8，则不需要这一步，直接跳下一步！</p>
 <p>这一步我们需要重新在另一台电脑Ubuntu编译Linux内核，并把它安装到orangePi上。</p>
 <p>在Ubuntu主机上：<code>lsb_release -a</code> 查看Ubuntu版本；</p>
 <blockquote>
 <p>切记！orangePi给出的编译库及工具链仅支持22.04.我尝试就在debian上编译结果出错了</p>
 </blockquote>
-<h4 id="安装编译内核库及工具链Linux-sdk："><a href="#安装编译内核库及工具链Linux-sdk：" class="headerlink" title="安装编译内核库及工具链Linux sdk："></a>安装编译内核库及工具链Linux sdk：</h4><p><code>sudo apt-get update</code></p>
+<h4 id="安装编译内核库及工具链linux-sdk">安装编译内核库及工具链Linux
+sdk：</h4>
+<p><code>sudo apt-get update</code></p>
 <p><code>sudo apt-get install -y git</code></p>
 <p><code>git clone https://github.com/orangepi-xunlong/orangepi-build.git -b next</code></p>
 <blockquote>
-<p><em>orangepi-build 第一次运行的时候会去下载交叉编译工具链、u-boot 和 linux 内核</em></p>
-<p><em>源码，成功编译完一次 linux 镜像后在 orangepi-build 中可以看到的文件和文件夹有</em></p>
-<p><em>a.</em> <strong><em>build.sh</em></strong><em>: 编译启动脚本__range Pi 用户手册</em></p>
+<p><em>orangepi-build 第一次运行的时候会去下载交叉编译工具链、u-boot 和
+linux 内核</em></p>
+<p><em>源码，成功编译完一次 linux 镜像后在 orangepi-build
+中可以看到的文件和文件夹有</em></p>
+<p><em>a.</em> <strong><em>build.sh</em></strong>_:
+编译启动脚本_<em>range Pi 用户手册</em></p>
 <p><em>深圳市迅龙软件有限公司版权所有</em></p>
 <p><em>492</em></p>
-<p><em>b.</em> <strong><em>external</em></strong><em>: 包含编译镜像需要用的配置文件、特定功能的脚本以及部分程序</em></p>
-<p><em>的源码，编译镜像过程中缓存的 rootfs 压缩包也存放在 external 中</em></p>
-<p><em>c.</em> <strong><em>kernel</em></strong><em>: 存放 linux 内核的源码，里面名为</em> <strong><em>orange-pi-5.10-rk35xx</em></strong> <em>的文件夹</em></p>
-<p><em>存放的就是 RK3588&#x2F;RK3588S 系列开发板 legacy 分支的内核源码，内核源</em></p>
+<p><em>b.</em> <strong><em>external</em></strong>_:
+包含编译镜像需要用的配置文件、特定功能的脚本以及部分程序_</p>
+<p><em>的源码，编译镜像过程中缓存的 rootfs 压缩包也存放在 external
+中</em></p>
+<p><em>c.</em> <strong><em>kernel</em></strong>_: 存放 linux
+内核的源码，里面名为_ <strong><em>orange-pi-5.10-rk35xx</em></strong>
+<em>的文件夹</em></p>
+<p><em>存放的就是 RK3588/RK3588S 系列开发板 legacy
+分支的内核源码，内核源</em></p>
 <p><em>码的文件夹的名字请不要手动修改，如果修改了，编译系统运行时会重新下</em></p>
 <p><em>载内核源码</em></p>
-<p><em>d.</em> <strong><em>LICENSE</em></strong><em>: GPL 2 许可证文件</em></p>
-<p><em>e.</em> <strong><em>README.md</em></strong><em>: orangepi-build 说明文件</em></p>
-<p><em>f.</em> <strong><em>output</em></strong><em>: 存放编译生成的 u-boot、linux 等 deb 包、编译日志以及编译生成的</em></p>
+<p><em>d.</em> <strong><em>LICENSE</em></strong>_: GPL 2 许可证文件_</p>
+<p><em>e.</em> <strong><em>README.md</em></strong>_: orangepi-build
+说明文件_</p>
+<p><em>f.</em> <strong><em>output</em></strong>_: 存放编译生成的
+u-boot、linux 等 deb 包、编译日志以及编译生成的_</p>
 <p><em>镜像等文件</em></p>
-<p><em>g.</em> <strong><em>scripts</em></strong><em>: 编译 linux 镜像的通用脚本</em></p>
-<p><em>h.</em> <strong><em>toolchains</em></strong><em>: 存放交叉编译工具链</em></p>
-<p><em>i.</em> <strong><em>u-boot</em></strong><em>: 存放 u-boot 的源码，里面名为</em> <strong><em>v2017.09-rk3588</em></strong> <em>的文件夹存放的就</em></p>
-<p><em>是 RK3588&#x2F;RK3588S 系列开发板 legacy 分支的 u-boot 源码，u-boot 源码的</em></p>
+<p><em>g.</em> <strong><em>scripts</em></strong>_: 编译 linux
+镜像的通用脚本_</p>
+<p><em>h.</em> <strong><em>toolchains</em></strong>_:
+存放交叉编译工具链_</p>
+<p><em>i.</em> <strong><em>u-boot</em></strong>_: 存放 u-boot
+的源码，里面名为_ <strong><em>v2017.09-rk3588</em></strong>
+<em>的文件夹存放的就</em></p>
+<p><em>是 RK3588/RK3588S 系列开发板 legacy 分支的 u-boot 源码，u-boot
+源码的</em></p>
 <p><em>文件夹的名字请不要手动修改，如果修改了，编译系统运行时会重新下载</em></p>
 <p><em>u-boot 源码</em></p>
-<p><em>j.</em> <strong><em>userpatches</em></strong><em>: 存放编译脚本需要用到的配置文件</em></p>
+<p><em>j.</em> <strong><em>userpatches</em></strong>_:
+存放编译脚本需要用到的配置文件_</p>
 </blockquote>
 <p>之后:</p>
 <p><code>cd ./orangepi-build</code></p>
@@ -682,32 +594,45 @@ mjx-container[display="true"] + br {
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/upload/%E5%9B%BE%E7%89%87-zaby.png"
-                     
+                     data-src="/upload/图片-zaby.png"
+                      
                 ></p>
 <p><strong>接着选择开发板的型号</strong></p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/upload/%E5%9B%BE%E7%89%87(1).png"
-                     
+                     data-src="/upload/图片(1).png"
+                      
                 ></p>
 <p><strong>按需选择是否更改内核参数，这里我就不改</strong></p>
-<h4 id="开始第一次编译！（等下还要重新再来一次）"><a href="#开始第一次编译！（等下还要重新再来一次）" class="headerlink" title="开始第一次编译！（等下还要重新再来一次）"></a>开始第一次编译！（等下还要重新再来一次）</h4><p>编译时间因Ubuntu主机的cpu决定！</p>
-<p>编译完成后进入输出目录<code>output</code> 可以发现已经有几个镜像文件了</p>
+<h4
+id="开始第一次编译等下还要重新再来一次">开始第一次编译！（等下还要重新再来一次）</h4>
+<p>编译时间因Ubuntu主机的cpu决定！</p>
+<p>编译完成后进入输出目录<code>output</code>
+可以发现已经有几个镜像文件了</p>
 <blockquote>
-<p><strong>a.linux-dtb-legacy-rockchip-rk3588_1.0.6_arm64.deb</strong> 包含内核使用的 dtb 文件</p>
-<p>b. <strong>linux-headers-legacy-rockchip-rk3588_1.0.6_arm64.deb</strong> 包含内核头文件</p>
-<p>c. <strong>linux-image-legacy-rockchip-rk3588_1.0.6_arm64.deb</strong> 包含内核镜像和内核模块</p>
+<p><strong>a.linux-dtb-legacy-rockchip-rk3588_1.0.6_arm64.deb</strong>
+包含内核使用的 dtb 文件</p>
+<ol start="2" type="a">
+<li><p><strong>linux-headers-legacy-rockchip-rk3588_1.0.6_arm64.deb</strong>
+包含内核头文件</p></li>
+<li><p><strong>linux-image-legacy-rockchip-rk3588_1.0.6_arm64.deb</strong>
+包含内核镜像和内核模块</p></li>
+</ol>
 </blockquote>
 <p>删掉！由于编译的内核版本还是0.9.6，我们需要更换驱动文件，重新编译-</p>
 <p><strong>找到npu的最新驱动文件压缩包</strong></p>
-<p>该压缩包在 <a class="link"   target="_blank" rel="noopener" href="https://github.com/airockchip/rknn-llm/tree/main/rknpu-driver" >rknn-llm<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 源码下。<code>/rknn-llm/drivers</code></p>
+<p>该压缩包在 <a class="link" 
+ target="_blank" rel="noopener" href="https://github.com/airockchip/rknn-llm/tree/main/rknpu-driver" >rknn-llm<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+源码下。<code>/rknn-llm/drivers</code></p>
 <p><strong>解压缩替换内核驱动！</strong></p>
-<p>找到编译后<code>/linux-rockchip-rk3588-legacy</code> 的drivers文件夹，将解压后的新驱动<code>rknpu</code>文件夹替换掉原来的即可。</p>
+<p>找到编译后<code>/linux-rockchip-rk3588-legacy</code>
+的drivers文件夹，将解压后的新驱动<code>rknpu</code>文件夹替换掉原来的即可。</p>
 <blockquote>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意!"></a>注意!</h3><p>在0.9.8下（截至目前测试），我们还需要对其它几个驱动文件进行修改！</p>
-<p>打开编译源码目录下 <code>include/linux/mm.h ，</code>在include引用下面添加：</p>
+<h3 id="注意">注意!</h3>
+<p>在0.9.8下（截至目前测试），我们还需要对其它几个驱动文件进行修改！</p>
+<p>打开编译源码目录下
+<code>include/linux/mm.h ，</code>在include引用下面添加：</p>
 <pre><code>static inline void vm_flags_set(struct vm_area_struct *vma, vm_flags_t flags)
 {
     vma-&gt;vm_flags |= flags;
@@ -715,38 +640,49 @@ mjx-container[display="true"] + br {
 static inline void vm_flags_clear(struct vm_area_struct *vma, vm_flags_t flags)
 {
      vma-&gt;vm_flags &amp;= ~flags;
-}
-</code></pre>
+}</code></pre>
 <p>新的rknpu驱动文件里<code>rknpu_devfreq.c</code> ：</p>
 <p>注释掉：<code>//.set_soc_info = rockchip_opp_set_low_length,</code></p>
 </blockquote>
-<h4 id="取消同步"><a href="#取消同步" class="headerlink" title="取消同步"></a>取消同步</h4><blockquote>
-<p>orangepi-bulid 编译系统编译 linux 内核源码时首先会将 linux 内核源码和 github服务器的 linux 内核源码进行同步，所以如果想修改 linux 内核的源码，首先需要关闭源码的更新功能（<strong>需要完整编译过一次 linux 内核源码后才能关闭这个功能，否则会提示找不到 linux 内核的源码，如果是从百度云盘下载的源码压缩包，则没有这个问题，因为 linux 的源码都已缓存好了</strong>），否则所作的修改都会被还原</p>
+<h4 id="取消同步">取消同步</h4>
+<blockquote>
+<p>orangepi-bulid 编译系统编译 linux 内核源码时首先会将 linux 内核源码和
+github服务器的 linux 内核源码进行同步，所以如果想修改 linux
+内核的源码，首先需要关闭源码的更新功能（<strong>需要完整编译过一次 linux
+内核源码后才能关闭这个功能，否则会提示找不到 linux
+内核的源码，如果是从百度云盘下载的源码压缩包，则没有这个问题，因为 linux
+的源码都已缓存好了</strong>），否则所作的修改都会被还原</p>
 </blockquote>
-<p>将<code>userpatches/config-default.conf</code> 中的 <code>IGNORE_UPDATES</code> 变量为<code>“yes”</code></p>
-<h3 id="Ok，不出意外，不漏步骤的话，可以重新编译了"><a href="#Ok，不出意外，不漏步骤的话，可以重新编译了" class="headerlink" title="Ok，不出意外，不漏步骤的话，可以重新编译了"></a>Ok，不出意外，不漏步骤的话，可以重新编译了</h3><pre><code>cd /your/path/orangepi-build
+<p>将<code>userpatches/config-default.conf</code> 中的
+<code>IGNORE_UPDATES</code> 变量为<code>“yes”</code></p>
+<h3
+id="ok不出意外不漏步骤的话可以重新编译了">Ok，不出意外，不漏步骤的话，可以重新编译了</h3>
+<pre><code>cd /your/path/orangepi-build
 
-sudo ./build.sh
-</code></pre>
+sudo ./build.sh</code></pre>
 <p>重新按照源步骤选择即可。</p>
 <p>一顿输出，会得到</p>
 <blockquote>
-<p><strong>a.linux-dtb-legacy-rockchip-rk3588_1.0.6_arm64.deb</strong> 包含内核使用的 dtb 文件</p>
-<p>b. <strong>linux-headers-legacy-rockchip-rk3588_1.0.6_arm64.deb</strong> 包含内核头文件</p>
-<p>c. <strong>linux-image-legacy-rockchip-rk3588_1.0.6_arm64.deb</strong> 包含内核镜像和内核模块</p>
+<p><strong>a.linux-dtb-legacy-rockchip-rk3588_1.0.6_arm64.deb</strong>
+包含内核使用的 dtb 文件</p>
+<ol start="2" type="a">
+<li><p><strong>linux-headers-legacy-rockchip-rk3588_1.0.6_arm64.deb</strong>
+包含内核头文件</p></li>
+<li><p><strong>linux-image-legacy-rockchip-rk3588_1.0.6_arm64.deb</strong>
+包含内核镜像和内核模块</p></li>
+</ol>
 <p>d.<strong>linux-image-legacy-rockchip-rk3588_deg_1.0.6_arm64.deb</strong></p>
 </blockquote>
-<h2 id="安装新内核"><a href="#安装新内核" class="headerlink" title="安装新内核"></a>安装新内核</h2><p>1.用sftp或者<code>rz</code>命令上传到OrangePi板子上</p>
+<h2 id="安装新内核">安装新内核</h2>
+<p>1.用sftp或者<code>rz</code>命令上传到OrangePi板子上</p>
 <p>2.<code>cd</code>到上传到的文件夹 ： <code>cd /your/path</code></p>
 <p>3.4个<code>deb</code>包都在一个文件夹的话,直接安装deb内核;</p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">sudo dpkg -i *.deb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="大功告成！"><a href="#大功告成！" class="headerlink" title="大功告成！"></a>大功告成！</h2><p>重启！</p>
-<pre><code>sudo reboot
-</code></pre>
+<h2 id="大功告成">大功告成！</h2>
+<p>重启！</p>
+<pre><code>sudo reboot</code></pre>
 <p>之后你可以重新查看内核版本，是否已经更新：</p>
-<pre><code>sudo cat /sys/kernel/debug/rknpu/version
-</code></pre>
+<pre><code>sudo cat /sys/kernel/debug/rknpu/version</code></pre>
 
 		</div>
 
@@ -976,7 +912,7 @@ sudo ./build.sh
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
 		<div class="page-title">OrangePi5pro更新npu驱动</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83"><span class="nav-text">部署环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5NPU%E9%A9%B1%E5%8A%A8%EF%BC%81"><span class="nav-text">检查NPU驱动！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%96%B0%E5%86%85%E6%A0%B8"><span class="nav-text">编译新内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-text">注意!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ok%EF%BC%8C%E4%B8%8D%E5%87%BA%E6%84%8F%E5%A4%96%EF%BC%8C%E4%B8%8D%E6%BC%8F%E6%AD%A5%E9%AA%A4%E7%9A%84%E8%AF%9D%EF%BC%8C%E5%8F%AF%E4%BB%A5%E9%87%8D%E6%96%B0%E7%BC%96%E8%AF%91%E4%BA%86"><span class="nav-text">Ok，不出意外，不漏步骤的话，可以重新编译了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%96%B0%E5%86%85%E6%A0%B8"><span class="nav-text">安装新内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E5%8A%9F%E5%91%8A%E6%88%90%EF%BC%81"><span class="nav-text">大功告成！</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83"><span class="nav-text">部署环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5npu%E9%A9%B1%E5%8A%A8"><span class="nav-text">检查NPU驱动！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%96%B0%E5%86%85%E6%A0%B8"><span class="nav-text">编译新内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-text">注意!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ok%E4%B8%8D%E5%87%BA%E6%84%8F%E5%A4%96%E4%B8%8D%E6%BC%8F%E6%AD%A5%E9%AA%A4%E7%9A%84%E8%AF%9D%E5%8F%AF%E4%BB%A5%E9%87%8D%E6%96%B0%E7%BC%96%E8%AF%91%E4%BA%86"><span class="nav-text">Ok，不出意外，不漏步骤的话，可以重新编译了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%96%B0%E5%86%85%E6%A0%B8"><span class="nav-text">安装新内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E5%8A%9F%E5%91%8A%E6%88%90"><span class="nav-text">大功告成！</span></a></li></ol>
 
 	</div>
 </div>

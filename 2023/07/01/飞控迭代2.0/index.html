@@ -169,119 +169,7 @@
     
     
     
-<meta name="generator" content="Hexo 8.1.2"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-.MathJax path {
-  stroke-width: 3;
-}
-
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
-
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style><link rel="alternate" href="/atom.xml" title="雨山的Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="雨山的Blog" type="application/atom+xml">
 </head>
 
 
@@ -496,11 +384,11 @@ mjx-container[display="true"] + br {
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">72</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">75</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
@@ -625,11 +513,12 @@ mjx-container[display="true"] + br {
 			<blockquote>
 <p>飞控端：我们的系统的飞机状态更新是由状态机实现的。通过循环更新状态码指定飞机的状态，并由遥控与应急状态模块决定无人机下一次的飞机状态。飞控我们采用MCU是Stm32H7系列，我们对接了mpu九轴传感器，气压计bmp280，光流计，并采用滤波（KALMAN滤波，中值滤波），对于光流输出数据，我们加上低通滤波使其相位滞后，以达到与mpu与激光测距高度相位基本相同。飞控的核心在于PID。我们对不同的飞行模式采用不同的串联方式。</p>
 </blockquote>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/lcoy/stm32uav"><img  
+<p><a target="_blank" rel="noopener" href="https://gitee.com/lcoy/stm32uav"><img 
+
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://gitee.com/lcoy/stm32uav/widgets/widget_card.svg?colors=393222,ebdfc1,fffae5,d8ca9f,393222,a28b40"
-                     
+                      
                 ></a></p>
 <p>遥控：我们采用角度环——角速度环，不断调整姿态，这样能更加快速响应遥控的指令。</p>
 <p>悬停+视觉跟踪：我们采用位置环——速度环——角度环——角速度环四个串级PID，能更加精确地实现悬停以及跟踪。</p>
@@ -643,43 +532,60 @@ mjx-container[display="true"] + br {
 <p>State状态机：判断飞机状态与当前模式，从而指定下一个状态。</p>
 <p>电机输出：PWM波信号在状态机判断后输出给电机</p>
 </blockquote>
+<figure>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/upload/图片.png"
+                      alt="图片.png" 
+                >
+<figcaption aria-hidden="true">图片.png</figcaption>
+</figure>
+<figure>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/upload/图片1-yrgd.png"
+                      alt="图片1-yrgd.png" 
+                >
+<figcaption aria-hidden="true">图片1-yrgd.png</figcaption>
+</figure>
+<h1 id="画电路板">画电路板</h1>
+<figure>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/upload/图片6-xazz.png"
+                      alt="图片6-xazz.png" 
+                >
+<figcaption aria-hidden="true">图片6-xazz.png</figcaption>
+</figure>
+<figure>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/upload/图片3-blmh.png"
+                      alt="图片3-blmh.png" 
+                >
+<figcaption aria-hidden="true">图片3-blmh.png</figcaption>
+</figure>
+<h2 id="openmv视觉颜色跟踪">OpenMV视觉颜色跟踪</h2>
+<p><a class="link"   target="_blank" rel="noopener" href="https://gitee.com/liu-xucen/code-open-mv" >刘栩岑/代码（open
+mv） (gitee.com)<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/upload/%E5%9B%BE%E7%89%87.png"
-                      alt="图片.png"
-                ></p>
-<p><img  
+                     data-src="/upload/图片7-occh.png"
+                      alt="图片7-occh.png" 
+                ><img 
+
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/upload/%E5%9B%BE%E7%89%871-yrgd.png"
-                      alt="图片1-yrgd.png"
+                     data-src="/upload/图片2-yftp.png"
+                      alt="图片2-yftp.png" 
                 ></p>
-<h1 id="画电路板"><a href="#画电路板" class="headerlink" title="画电路板"></a>画电路板</h1><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/upload/%E5%9B%BE%E7%89%876-xazz.png"
-                      alt="图片6-xazz.png"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/upload/%E5%9B%BE%E7%89%873-blmh.png"
-                      alt="图片3-blmh.png"
-                ></p>
-<h2 id="OpenMV视觉颜色跟踪"><a href="#OpenMV视觉颜色跟踪" class="headerlink" title="OpenMV视觉颜色跟踪"></a>OpenMV视觉颜色跟踪</h2><p><a class="link"   target="_blank" rel="noopener" href="https://gitee.com/liu-xucen/code-open-mv" >刘栩岑&#x2F;代码（open mv） (gitee.com)<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/upload/%E5%9B%BE%E7%89%877-occh.png"
-                      alt="图片7-occh.png"
-                ><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/upload/%E5%9B%BE%E7%89%872-yftp.png"
-                      alt="图片2-yftp.png"
-                ></p>
-<h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>由于学业安排，时间紧任务重，周围没有相关先例可供参考，我们小组三人分工协作，分配负责飞控编写，遥控传输，OPENMV视觉模块。我们小组抽空自行搜索网上资料，学习一些知识教程，每周进行会议来汇报各自工作进度与困难，并进行对接工作。之后在未进行上机之前完成了初步调试工作。在完成学业安排后我们立即线下调试。组装后发现有许多模块与代码编写之处有不少漏洞与错误，同时发现软件与硬件之间存在很大的鸿沟。在遥控代码编写进行测试时我们发现在进行WIFI通信上存在数据顺序错误，读取错误问题，在故障排除上我们花去不少的时间去寻找，但是错误修复却十分迅速；在PID进行调参上，我们花费大量时间，整个无人机系统是开环与闭环混合系统，容易使系统不稳定。加上我们没有先前调参经验与建模能力，我们调参效率低下，严重拖累后续调试进度。在视觉模块下，我们发现OPENMV不能达到一个十分理想的水平，容易丢失捕捉内容，输出错误等问题。进行模块组装时候，发现我们一些方案设计上是有漏洞的，有些细节并没有考虑清楚，导致分配组装时产生许多问题，配重不合理，电线排布杂乱，调试设备不符合我们的需求等。不过收获也颇多。总之，如果还有机会，可以继续完善！</p>
+<h2 id="心得">心得</h2>
+<p>由于学业安排，时间紧任务重，周围没有相关先例可供参考，我们小组三人分工协作，分配负责飞控编写，遥控传输，OPENMV视觉模块。我们小组抽空自行搜索网上资料，学习一些知识教程，每周进行会议来汇报各自工作进度与困难，并进行对接工作。之后在未进行上机之前完成了初步调试工作。在完成学业安排后我们立即线下调试。组装后发现有许多模块与代码编写之处有不少漏洞与错误，同时发现软件与硬件之间存在很大的鸿沟。在遥控代码编写进行测试时我们发现在进行WIFI通信上存在数据顺序错误，读取错误问题，在故障排除上我们花去不少的时间去寻找，但是错误修复却十分迅速；在PID进行调参上，我们花费大量时间，整个无人机系统是开环与闭环混合系统，容易使系统不稳定。加上我们没有先前调参经验与建模能力，我们调参效率低下，严重拖累后续调试进度。在视觉模块下，我们发现OPENMV不能达到一个十分理想的水平，容易丢失捕捉内容，输出错误等问题。进行模块组装时候，发现我们一些方案设计上是有漏洞的，有些细节并没有考虑清楚，导致分配组装时产生许多问题，配重不合理，电线排布杂乱，调试设备不符合我们的需求等。不过收获也颇多。总之，如果还有机会，可以继续完善！</p>
 
 		</div>
 
@@ -909,7 +815,7 @@ mjx-container[display="true"] + br {
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
 		<div class="page-title">飞控迭代2.0</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%BB%E7%94%B5%E8%B7%AF%E6%9D%BF"><span class="nav-text">画电路板</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenMV%E8%A7%86%E8%A7%89%E9%A2%9C%E8%89%B2%E8%B7%9F%E8%B8%AA"><span class="nav-text">OpenMV视觉颜色跟踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%83%E5%BE%97"><span class="nav-text">心得</span></a></li></ol></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%BB%E7%94%B5%E8%B7%AF%E6%9D%BF"><span class="nav-text">画电路板</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#openmv%E8%A7%86%E8%A7%89%E9%A2%9C%E8%89%B2%E8%B7%9F%E8%B8%AA"><span class="nav-text">OpenMV视觉颜色跟踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%83%E5%BE%97"><span class="nav-text">心得</span></a></li></ol></li></ol>
 
 	</div>
 </div>

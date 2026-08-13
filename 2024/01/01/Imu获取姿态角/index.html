@@ -169,119 +169,7 @@
     
     
     
-<meta name="generator" content="Hexo 8.1.2"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-.MathJax path {
-  stroke-width: 3;
-}
-
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
-
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style><link rel="alternate" href="/atom.xml" title="雨山的Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="雨山的Blog" type="application/atom+xml">
 </head>
 
 
@@ -496,11 +384,11 @@ mjx-container[display="true"] + br {
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">72</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">75</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
@@ -686,7 +574,6 @@ angle<span class="token operator">-></span>pitch<span class="token operator">=</
 angle<span class="token operator">-></span>roll<span class="token operator">=</span><span class="token function">AT</span><span class="token punctuation">(</span><span class="token function">arctan</span><span class="token punctuation">(</span>g2<span class="token operator">/</span>g3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 angle<span class="token operator">-></span>yaw<span class="token operator">=</span><span class="token function">AT</span><span class="token punctuation">(</span><span class="token function">atan2f</span><span class="token punctuation">(</span>g4<span class="token punctuation">,</span>g5<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><code>imu.h</code></p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span>  <span class="token expression">__IMU_H__</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">__IMU_H__</span></span>
@@ -722,7 +609,6 @@ angle<span class="token operator">-></span>yaw<span class="token operator">=</sp
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
 <p>等期末结束后再专心写飞控吧，之后测试完毕后我会把所有代码分享出来！</p>
 </blockquote>
