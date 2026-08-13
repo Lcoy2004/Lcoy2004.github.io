@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    
+    
+    <meta name="author" content="雨山">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes ASAP (before DOMContentLoaded)
+            (function() {
+                const addBodyClass = () => {
+                    const b = document.body;
+                    if (!b) return false;
+                    b.classList.add(theme + "-mode");
+                    return true;
+                };
+
+                // Try immediately
+                if (addBodyClass()) return;
+
+                // Observe until body exists
+                const mo = new MutationObserver(() => {
+                    if (addBodyClass()) mo.disconnect();
+                });
+                mo.observe(document.documentElement, { childList: true, subtree: true });
+            })();
+        })();
+    </script>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://registry.npmmirror.com" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://lcoy2004.github.io/2022/01/01/克劳恩传16——“罪人”/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="克劳恩传16——“罪人”">
+<meta property="og:url" content="https://lcoy2004.github.io/2022/01/01/%E5%85%8B%E5%8A%B3%E6%81%A9%E4%BC%A016%E2%80%94%E2%80%94%E2%80%9C%E7%BD%AA%E4%BA%BA%E2%80%9D/">
+<meta property="og:site_name" content="雨山的Blog">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lcoy2004.github.io/images/redefine-og.webp">
+<meta property="article:published_time" content="2021-12-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-13T02:59:45.032Z">
+<meta property="article:author" content="雨山">
+<meta property="article:tag" content="克劳恩传">
+<meta property="article:tag" content="小说">
+<meta property="article:tag" content="第16章">
+<meta property="article:tag" content="青春">
+<meta property="article:tag" content="高中">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lcoy2004.github.io/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!--- Page Info-->
+    
+    <title>
+        
+            克劳恩传16——“罪人” | 雨山的Blog
+        
+    </title>
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+        <link href="" rel="stylesheet">
+    
+    
+        <link href="" rel="stylesheet">
+    
+    
+        <link href="" rel="stylesheet">
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"lcoy2004.github.io","root":"/","language":"zh-CN"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":true,"family":null,"url":null},"english":{"enable":true,"family":null,"url":null},"title":{"enable":true,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"雨山的Blog","subtitle":{"text":["我已亭亭，无忧亦无惧"],"hitokoto":{"enable":true,"show_author":true,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":[{"icon":"fa-brands fa-github","url":"https://github.com/Lcoy2004"},{"icon":"fa-brands fa-twitter","url":null},{"icon":"fa-solid fa-at","url":"lcoy2004@qq.com"},{"icon":"fa-brands fa-telegram","url":null},{"icon":"/images/custom-icon.svg","url":null}],"qrs":[{"icon":"fa-brands fa-weixin","qr":null},{"icon":"/images/custom-icon.svg","qr":null}]}},"plugins":{"feed":{"enable":true},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1","theme":{"light":"default","dark":"dark"}}},"version":"2.9.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur","masonry":{"batch_size":12,"initial_batch_size":24}},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footer":{"runtime":true,"icon":"<i class=\"fa-solid fa-heart fa-beat\" style=\"--fa-animation-duration: 0.5s; color: #f54545\"></i>","start":"2022/7/11 23:00:00","statistics":true,"customize":null,"icp":{"enable":false,"number":null,"url":null}},"footerStart":"2022/7/11 23:00:00","mermaid":{"style":{"light":"default","dark":"dark"}}};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.i18n = {"search":"站内搜索您需要的内容...","toc":"目录","prev":"上一页","next":"下一页","prev_posts":"上一篇","next_posts":"下一篇","page":"第 %d 页","recent_posts":"最新文章","share":"分享","powered_by":"由 %s 驱动","theme":"主题","rss_feed":"RSS Feed","category":"分类","categories":"分类","tag":"标签","tags":"标签","post":"文章","posts":"文章","tagcloud":"标签云","comment":"评论","comments":"评论","top":"置顶","sticky":"置顶","go-back-home":"回到首页","masonry_loading":"照片加载中...","image_viewer":"图片查看器","close":"关闭","exif":{"title":"EXIF","cards":{"camera":"相机","lens":"镜头","exposure":"曝光","other":"其他"},"fields":{"make":"品牌","model":"机型","date_taken":"拍摄时间","lens_model":"镜头","focal_length":"焦距","focus_mode":"对焦模式","shutter":"快门","aperture":"光圈","iso":"感光度","exposure_program":"曝光程序","exposure_compensation":"曝光补偿","metering_mode":"测光模式","flash":"闪光灯","white_balance":"白平衡","latitude":"纬度","longitude":"经度","altitude":"海拔"},"status":{"loading":"加载中...","no_exif":"无 EXIF 信息","library_missing":"EXIF 库未加载","image_source_missing":"图片地址不可用","unavailable":"EXIF 不可用（可能被 CORS 阻止或缺少元数据）","flag_unavailable":"EXIF 不可用"}},"home":"首页","archive":"归档","archives":"归档","about":"关于","links":"链接","link":"链接","friends":"友情链接","friend":"友情链接","timeline":"时间轴","shuoshuo":"说说","bookmarks":"书签","site_uv":"访问人数","site_pv":"总访问量","read_more":"阅读全文","wordcount":"字","min2read":"分钟","changelog":"更新日志","status":"状态","runtime":"博客已运行","days":"天","hours":"小时","minutes":"分钟","seconds":"秒","optimized_by":"并由 Evan 进行优化","rights":"版权所有","site_posts":"共撰写了 %s 篇文章","site_wordcount":"共 %s 字","copyright":{"title":"标题","author":"作者","link":"链接","create_time":"创建于","update_time":"更新于","license_title":"版权声明","license_content":"本文章采用 %s 进行许可。","all_rights_reserved":"版权所有 &#169 %s，禁止转载。","public_domain":"本文为公有领域作品，可自由转载、引用。"},"ago":{"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"},"create_time":"创建","update_time":"更新","expired":"这篇文章最后更新于 %s 天前，内容可能已经过时。"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 8.1.2"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="雨山的Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                雨山的Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-regular fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">72</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">48</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">克劳恩传16——“罪人”</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] shrink-0 rounded-medium border border-border-color p-px">
+				<img src="/images/logo.jpeg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">雨山</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2022-01-01</span>
+        <span class="mobile">2022-01-01</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2026-08-13 10:59:45</span>
+            <span class="mobile">2026-08-13 10:59:45</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E5%B0%8F%E8%AF%B4/">小说</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%B0%8F%E8%AF%B4/">小说</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%85%8B%E5%8A%B3%E6%81%A9%E4%BC%A0/">克劳恩传</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E9%AB%98%E4%B8%AD/">高中</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E9%9D%92%E6%98%A5/">青春</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%AC%AC16%E7%AB%A0/">第16章</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p>离高考还有20天</p>
+<p>      “这个高志尚，有tm什么了不起嘛，不就是模拟考好了吗？高兴个p，看到他那样我就烦！搞人心态!<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e111.gif"
+                      alt="表情"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e111.gif"
+                      alt="表情"
+                >”班长文迟毕愤愤的说。“就是，md就爱装逼嘛，那天还耶的多大声，生怕我们听不见是吧！真是小丑一个<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e111.gif"
+                      alt="表情"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e111.gif"
+                      alt="表情"
+                >！”苏仁建也附和道。“这种人，等到了高考，看他还能不能嚣张<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e111.gif"
+                      alt="表情"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e111.gif"
+                      alt="表情"
+                >！”黎碧莎也骂道。文迟毕是班长，老师眼中的好学生，甚至在曾经高志尚成绩还很差的时候，文迟毕还对他说：“努力打败那些看不起你的人。”当时的高志尚觉得文迟毕身为班长，还挺认真负责，关心同学，然而殊不知，他也不是啥好鸟。苏仁建和文迟毕是好哥们，两人成绩都是班前十，不过这次模拟却败给了高志尚。物以类聚，人以群分，自然，苏仁建也不是什么好货，还有跟苏仁建和文迟毕结交的那帮人。。。</p>
+<p>      此时教室里，女班长鲍姿也不安分起来，“这个高志尚，得意啥呢？不就是一次考好了吗？<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e123.gif"
+                      alt="表情"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e123.gif"
+                      alt="表情"
+                >”“说白了他就是个小丑，还喜欢张梦姸呢！人家根本看不上他！我看，就是癞蛤蟆想吃天鹅肉。”另一位女同学附和道。</p>
+<p>      尽管他们趁高志尚不在的时候说了这些话，可一些消息还是被他不小心听见了。这不听见还好，一听见这些言论，高志尚差点没哭了出来，他怎么也没想到，自己一直以来如此努力，不但得不到什么认可，还被讨厌了？但是他第一时间就在想，是不是自己的问题，自己那天应该小声和黄征讨论成绩，也不应该在成绩榜前突然大喊，如果是自己考差了，听到有人庆祝，可能自己的心态也不会太好吧！他甚至开始怀疑，自己所追求的到底有什么意义，“我真的证明自己了吗？还是更讨人嫌了？”高志尚心想。“我除了成绩还行，真的就一无是处了吗？那这样还有什么意义！难道梦姸也讨厌我了吗？”他又想。不行，还是要给班上同学留个好印象啊！</p>
+<p>      于是他着手写了一封道歉信，打算给班上同学认错，对自己那天的激动行为表示愧疚。</p>
+<p>亲爱的各位同学：</p>
+<p>      对于我模拟考那天大喊大叫，并且大声和朋友讨论表示很抱歉。</p>
+<p>      最近心理压力实在太大，所以看到成绩行为有些激动，但没有考虑到大家的感受，都快高考了，那些考的不理想的同学本来就心情不好，我还这样表现，很容易影响他们的心态。取得好成绩不是拿来炫耀的，大家都是为了更好的未来而奋斗，我不应该忘记自己努力的初心。实在是抱歉影响了各位的心态。</p>
+<p>      希望各位能同学原谅我的所做所为，最后20天能冲上自己理想的大学！ </p>
+<p>                            写信人：高志尚</p>
+<p>      然后他把这封信，亲自一个个拿给班上人看，他的兄弟们都说：“你干嘛道歉啊，又不是什么大事，我们又对你没意见。”一些啥也不知道的同学也表示不理解怎么一回事。</p>
+<p>      等高志尚到了文迟毕等人面前时，班长文迟毕面色平静的看了高志尚一眼，“这个，班长抱歉啊，那天那样激动，影响了你们的心态，我写了个道歉信。”高志尚先开口，说着他把信递到文迟毕手中，文迟毕看了后又给了他旁边的苏仁建，然后他趾高气昂的说：“你自己知道错了，心里清楚就好！我们都是同学，这件事就不怪你了。”“谢谢班长！”高志尚诚恳的说道。看着高志尚的背影，苏仁建和文迟毕他们冷笑一声……</p>
+<p>       然后他把信给女班长鲍姿看了看，不久前还在骂高志尚的女班长鲍姿立马若无其事的说：“哎呀，没事没事，我根本就不知道有这回事，考的好是好事啊，你也没必要道歉啊，你也没做错什么啊！<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e110.gif"
+                      alt="表情"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e110.gif"
+                      alt="表情"
+                >”“谢谢！”高志尚同样诚恳的回道。</p>
+<p>      当然，他还是不敢把信给梦姸看的，而且把信给班上一些人看了后发现，有些人根本就不知道怎么一回事，莫名其妙的道歉反而会有所误会。高志尚只得在心里祈祷班上同学不要再那么讨厌他了，初中的时候他受够了班上同学的冷眼和嘲讽，他不希望现在也把事情发展成这样，更不希望梦姸也讨厌他。为了这件事，这天白天他几乎没有了学习的心思……</p>
+<p>      晚上，回到寝室，高志尚的第一件事就是问肖苟：“最近我在班上惹不少人讨厌，梦姸有没有讨厌我啊？”肖苟说：“这，我也不知道，不过梦姸最近有个秘密。”高志尚急切的问：“是什么？”肖苟说：“你要保证别说出去啊，梦姸给我说他只告诉我了，都让我不要传，但是因为你是兄弟所以我告诉你。”高志尚哀求道：“你就说嘛，放心，我不会到处乱说的。”肖苟说：“张梦姸她在外校有男朋友了。”听到这话，宛如一道晴天霹雳落在高志尚头上，高志尚只觉得脑袋翁的一下，然后有些怀疑的问：“这是真的吗？”肖苟说：“真的啊，她亲口告诉我的，我没有骗你！”高志尚无精打采的说：“好吧，我知道了！”</p>
+<p>       “那个五条悟老师手办感觉怎么样？我亲自帮你挑选的，她肯定喜欢。<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e113.gif"
+                      alt="表情"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e113.gif"
+                      alt="表情"
+                >”汪昊问道。“别说了，汪兄，我没戏了，人家都有了啊！”高志尚哀叹道。</p>
+<p>       “哦，原来是这样，其实我感觉她在骗你的，就是目前不想谈，她回学校那么早，家长管的严，怎么可能？我记得高一时候有女生给我表白我也是以在校外有女朋友拒绝了。”汪昊说。“啊，这样吗？”高志尚的心里似乎又燃起了希望。他只把这件事告诉了汪昊，不过那天晚上的寝室很安静，而且，文斗中学的宿舍是12人大寝。。。</p>
+<p>       第二天是星期六，又到了可以回家的时间，高志尚感觉自己的心情要好些了，等这次回家，就可以好好调整下自己的心态，昨天的事对自己影响太大了。</p>
+<p>可是到了晚上，一条来自莫奇的QQ消息惊动了高志尚。</p>
+<p>      莫奇：她都有男朋友了你就不要去烦她了，你影响她干嘛啊！</p>
+<p>      高志尚问道：怎么了？</p>
+<p>      那边没有回复……</p>
+<p>      难道是莫奇把自己当成情敌啦，他怎么如此莫名其妙？高志尚又困惑起来。</p>
+<p>     回到学校，高志尚也没敢当面去问莫奇，而且感觉上似乎没有什么事情发生，但是奇怪的是，班上有好几个男生看自己的时候，目光火辣辣的，其中包括莫奇，这是怎么了啊？</p>
+<p>       晚上回到寝室，高志尚又来到肖苟床前，“梦姸最近怎么样了啊，为啥莫奇突然给我发消息，说什么人家有男朋友了不要去烦人家？”，肖苟说：“你最近不要再说什么梦姸的事了，人家已经生气了。”高志尚心情又再次跌入谷底：“啊，发生什么了啊？我，我最近没做什么啊。”肖苟有些生气的说：“我让你不要说，你是不是说出去了？人家被传绯闻了，有八卦的男生去问她是不是有男朋友了！”高志尚有些不解，自己明明没做什么啊！自己只告诉了汪昊，而且以高志尚对他的了解，汪昊是肯定不会告密的。为什么班上好多人都知道了？还有就是，梦姸为啥要对肖苟如此声称？</p>
+<p>      高志尚心里有太多疑问了，他迫切想知道到底怎么了，他不想再被讨厌，不想在最后这些天弄出不愉快，他更不想张梦姸从此不理他了！“告诉我，肖苟，她。她到底怎么了？”高志尚带着哭腔问道。“她说别告诉你，怕影响你的学习心态。”肖苟说道。“你就告诉我吧，你不说，我一直都会想啊！”高志尚哀求道。“好吧，她昨天哭了，因为被传绯闻。”肖苟说。听到这，高志尚内心崩溃了，这下惨了，因为自己，张梦姸的心态因为自己被影响了！“我，我真的对不起啊！我能给她道歉吗？<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e117.gif"
+                      alt="表情"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e117.gif"
+                      alt="表情"
+                >”高志尚忍住眼泪问道。“你现在还是不要去找她，等高考完再道歉吧！现在还是自私一点，管好自己的学习就行了。”肖苟说道。</p>
+<p>      汪昊正在一旁听着肖苟和高志尚的对话，他安慰似的说：“这么好心的女孩，你要珍惜啊，可遇不可求啊！”“可是，她到时候还会理我吗？”高志尚问道。“没事没事，她心态还是挺好的，不用想太多。”肖苟说。“那我到时候还表不表白呢？”高志尚无精打采的问。“还是送礼物表白吧，不管结果怎样，青春总得不留遗憾！”肖苟说。随即他拿出一个小手链给高志尚看，说：“这就是我要送给喜欢的女生的礼物，到时候毕业典礼我们都去表白，我手上也戴了一个和这个手链配对的手链，如果她戴上了我的手链，我就成了！<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e102.gif"
+                      alt="表情"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://qzonestyle.gtimg.cn/qzone/em/e102.gif"
+                      alt="表情"
+                >”说道这里，肖苟还露出了微笑，似乎想象着和于敏慧牵手的场景，高志尚说：“好吧，那你到时候表白要说什么呢？”肖苟说：“这个嘛，你最好别说什么能不能做我女朋友，最好说我喜欢你，这样就算失败了也不尴尬。”看着高志尚还是不太高兴，肖苟拍了拍高志尚肩膀说：“没事，她不会在意的，她以前就哭过一次，女生嘛就是爱哭。”高志尚问：“哦？那她上一次是为啥哭呢？”果然，喜欢一个人就想知道她的全部。肖苟说：“这个嘛，当时她对胡萧哭诉班上的女生都孤立她，哭的可伤心了，然后胡萧很生气就去办公室告诉图隆，图隆把全班女生叫到办公室训了一顿呢，所以她和班上女生关系不是太好。”原来是这样，她可真可怜，还被孤立过啊，高志尚心想，越发觉得很愧疚，为什么要伤害这么一个可怜善良的女生呢？和肖苟互道晚安后，今晚的寝室夜话结束了……</p>
+<p>离高考还有15天</p>
+<p>      这些天高志尚再度失去了以往的学习状态，他一直在思考，梦姸究竟会不会原谅他呢？他想不明白，为什么，为什么事情会发展成这样，明明自己并没有做什么啊！</p>
+<p>      这天的课间，余仁突然找到了他，说：“我听说，你最近是不是跟张梦姸表白了？你说实话吧，现在就我们两个人。”不同于以往的嬉皮笑脸，余仁此时有些严肃的问道，他想要干什么？……</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 克劳恩传16——“罪人”</li>
+        <li><strong>作者:</strong> 雨山</li>
+        <li><strong>创建于
+                :</strong> 2022-01-01 00:00:00</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2026-08-13 10:59:45
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://lcoy2004.github.io/2022/01/01/克劳恩传16——“罪人”/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E5%B0%8F%E8%AF%B4/">#小说</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E5%85%8B%E5%8A%B3%E6%81%A9%E4%BC%A0/">#克劳恩传</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E9%AB%98%E4%B8%AD/">#高中</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E9%9D%92%E6%98%A5/">#青春</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E7%AC%AC16%E7%AB%A0/">#第16章</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2022/01/01/%E5%85%8B%E5%8A%B3%E6%81%A9%E4%BC%A015%E2%80%94%E2%80%94%E6%9B%99%E5%85%89%20/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">克劳恩传15——曙光</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2022/01/01/%E5%85%8B%E5%8A%B3%E6%81%A9%E4%BC%A01%E2%80%94%E2%80%94%E7%BC%98%E8%B5%B7%E6%96%87%E6%96%97/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">克劳恩传1——缘起文斗</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="giscus-container"></div>
+    <script data-swup-reload-script defer>
+        (function() {
+            const containerId = "giscus-container";
+            const mapping = "pathname";
+            const lang = "zh-CN";
+            const inputPosition = "bottom";
+            const reactionsEnabled = "1" === "1";
+            const emitMetadata = "1" === "1";
+            const strict = "0" === "1";
+            const loading = "lazy";
+
+            const getTerm = () => {
+                if (mapping === "pathname") return location.pathname;
+                if (mapping === "url") return location.href;
+                if (mapping === "title") return document.title;
+                if (mapping === "og:title") {
+                    const ogTitle = document.querySelector("meta[property='og:title']");
+                    return ogTitle?.content || document.title;
+                }
+                return "";
+            };
+
+            const sendUpdate = () => {
+                const iframe = document.querySelector("iframe.giscus-frame");
+                if (!iframe) {
+                    return;
+                }
+
+                const setConfig = {
+                    theme: "preferred_color_scheme",
+                    lang,
+                    inputPosition,
+                    reactionsEnabled,
+                    emitMetadata,
+                    strict,
+                };
+
+                if (mapping !== "number") {
+                    const term = getTerm();
+                    if (term) {
+                        setConfig.term = term;
+                    }
+                }
+
+                iframe.contentWindow.postMessage(
+                    { giscus: { setConfig } },
+                    "https://giscus.app",
+                );
+            };
+
+            const loadGiscus = () => {
+                const container = document.getElementById(containerId);
+                if (!container) {
+                    return;
+                }
+
+                const iframe = container.querySelector("iframe.giscus-frame");
+                if (iframe) {
+                    sendUpdate();
+                    return;
+                }
+
+                if (container.dataset.giscusInit === "true") {
+                    return;
+                }
+
+                const giscusConfig = {
+                    src: "https://giscus.app/client.js",
+                    "data-repo": "Lcoy2004/Lcoy2004.github.io",
+                    "data-repo-id": "R_kgDOT22mkQ",
+                    "data-category": "Announcements",
+                    "data-category-id": "DIC_kwDOT22mkc4DDQzd",
+                    "data-mapping": mapping,
+                    "data-strict": "0",
+                    "data-reactions-enabled": "1",
+                    "data-emit-metadata": "1",
+                    "data-theme": "preferred_color_scheme",
+                    "data-lang": lang,
+                    "data-input-position": inputPosition,
+                    "data-loading": loading,
+                    crossorigin: "anonymous",
+                    async: true,
+                };
+
+                const giscusScript = document.createElement("script");
+                for (const key in giscusConfig) {
+                    giscusScript.setAttribute(key, giscusConfig[key]);
+                }
+                container.appendChild(giscusScript);
+                container.dataset.giscusInit = "true";
+            };
+
+            const runGiscus = () => {
+                const container = document.getElementById(containerId);
+                if (!container) {
+                    return;
+                }
+
+                if (container.querySelector("iframe.giscus-frame")) {
+                    sendUpdate();
+                    return;
+                }
+
+                loadGiscus();
+            };
+
+            runGiscus();
+        })();
+    </script>
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">克劳恩传16——“罪人”</div>
+		
+
+	</div>
+</div>
+	</div>
+	
+</div>
+
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2026&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">雨山</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 48 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.9.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+		<li class="right-bottom-tools rss flex justify-center items-center">
+			<a class="flex justify-center items-center" href="/atom.xml" target="_blank">
+				<i class="fa-regular fa-rss"></i>
+			</a>
+		</li>
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container" role="dialog" aria-modal="true" aria-label="图片查看器">
+	<button class="image-viewer-close" type="button" aria-label="关闭">
+		<i class="fa-solid fa-xmark"></i>
+	</button>
+	<button class="image-viewer-prev" type="button" aria-label="上一页">
+		<i class="fa-solid fa-chevron-left"></i>
+	</button>
+	<div class="image-viewer-frame">
+		<img src="" alt="">
+	</div>
+	<div class="image-viewer-exif-panel hidden absolute left-1/2 bottom-20 -translate-x-1/2 w-[min(92vw,420px)] max-h-[60vh] overflow-hidden rounded-2xl bg-background-color-transparent-80 p-4 text-left shadow-redefine-flat backdrop-blur-md" role="dialog" aria-label="EXIF" aria-hidden="true">
+		<div class="flex items-center justify-between mb-3">
+			<span class="text-sm font-semibold text-first-text-color">EXIF</span>
+			<button class="image-viewer-exif-close flex h-8 w-8 items-center justify-center rounded-full bg-background-color-transparent-80 text-first-text-color transition hover:bg-background-color-transparent-40" type="button" aria-label="关闭">
+				<i class="fa-solid fa-xmark text-[0.65rem]"></i>
+			</button>
+		</div>
+		<div class="image-viewer-exif-cards grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto pr-1 scrollbar-hide"></div>
+		<template class="image-viewer-exif-card-template">
+			<div class="rounded-lg bg-background-color-transparent-40 px-3 py-2">
+				<div class="image-viewer-exif-card-header flex items-center gap-2 mb-1">
+					<i class="image-viewer-exif-card-icon fa-solid fa-circle-info text-xs text-third-text-color"></i>
+					<div class="image-viewer-exif-card-title text-xs font-semibold text-first-text-color"></div>
+				</div>
+				<div class="image-viewer-exif-card-items flex flex-col gap-1"></div>
+			</div>
+		</template>
+	</div>
+	<button class="image-viewer-exif-toggle flex items-center gap-2 hidden absolute left-1/2 bottom-6 -translate-x-1/2 rounded-full border border-border-color bg-background-color-transparent-80 px-4 py-2 text-first-text-color backdrop-blur-md transition hover:bg-background-color-transparent-40" type="button" aria-label="EXIF" aria-expanded="false">
+		<i class="fa-solid fa-circle-info text-xs"></i>
+		<span class="text-xs font-semibold uppercase tracking-wider">EXIF</span>
+	</button>
+	<button class="image-viewer-next" type="button" aria-label="下一页">
+		<i class="fa-solid fa-chevron-right"></i>
+	</button>
+</div>
+
+
+	
+
+</main>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/js/build/libs/Swup.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    window.swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+
+    window.dispatchEvent(
+        new CustomEvent("redefine:swup:ready", {
+            detail: {
+                swup: window.swup,
+            },
+        }),
+    );
+</script>
+
+
+
+
+	<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/js/build/main.js" ></script>
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/assets/odometer-theme-minimal.css">
+
+
+
+
+
+
+  <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/js/build/libs/Typed.min.js" ></script>
+
+
+
+
+
+
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.9.0/files/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+
+
+	
+</body>
+
+</html>
